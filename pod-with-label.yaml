@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-with-label
+  labels:
+    team: backend
+    version: 7.3.1
+    environment: production
+    up-to-u: this-is-up-to-you-without-space
+spec:
+  containers:
+    - name: nginx
+      image: nginx
+      ports:
+        - containerPort: 80
