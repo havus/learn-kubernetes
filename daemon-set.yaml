@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: nginx-ds
+spec:
+  selector:
+    matchLabels:
+      app: data-guardian
+  template:
+    metadata:
+      name: nginx
+      labels:
+        app: data-guardian
+        env: dev
+    spec:
+      containers:
+        - name: nginx
+          image: nginx:1.23.3-alpine
+          ports:
+            - containerPort: 80

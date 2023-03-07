@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: nginx-rc
+  labels:
+    team: product-booster
+    version: 1.2.3
+    environment: production
+  annotations:
+    description: This is Replication Controller
+spec:
+  replicas: 3
+  selector: # digunakan untuk select count nya, jangan redundant dan jangan berbeda dengan template.metadata.labels
+    app: data-guardian
+  template:
+    metadata:
+      name: nginx
+      labels:
+        app: data-guardian
+    spec:
+      containers:
+        - name: nginx
+          image: nginx:1.23.3-alpine
+          ports:
+            - containerPort: 80

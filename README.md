@@ -1,0 +1,14 @@
+# ROADMAP
+- nginx.yaml
+- pod-with-label.yaml
+- pod-with-annotation.yaml
+- namespace-for-dev.yaml
+- pod-with-probe.yaml
+- replication-controller.yaml
+- replica-set.yaml
+- daemon-set.yaml
+- job.yaml
+- cron-job.yaml
+- pod-with-node-selector.yaml
+- job-node-selector.yaml
+- service.yaml

@@ -1,0 +1,23 @@
+# NOTE: need to setup docker env to use minikube image registry, and add imagePullPolicy: Never
+
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: nodejs-job
+spec:
+  completions: 3
+  parallelism: 1
+  template:
+    metadata:
+      name: nodejs
+      labels:
+        app: data-guardian
+        env: dev
+    spec:
+      restartPolicy: Never
+      nodeSelector:
+        gpu: 'true'
+      containers:
+        - name: nodejs
+          image: havus/nodejs-job
+          imagePullPolicy: Never # optional to set minikube registry to docker
